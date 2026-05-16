@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MZN Luxury Dark</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#000;
+overflow:hidden;
+color:white;
+}
+
+.bg{
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(45deg,#000,#111,#1a1a1a,#000);
+background-size:400% 400%;
+animation:bgMove 10s infinite alternate;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+100%{background-position:100% 50%;}
+}
+
+.container{
+position:relative;
+text-align:center;
+z-index:1;
+}
+
+h1{
+font-size:60px;
+letter-spacing:5px;
+color:#fff;
+text-shadow:0 0 10px #8a2be2,
+0 0 20px #8a2be2,
+0 0 40px #8a2be2;
+animation:glow 2s infinite alternate;
+}
+
+p{
+margin-top:15px;
+font-size:20px;
+color:#ccc;
+}
+
+button{
+margin-top:25px;
+padding:12px 30px;
+border:none;
+border-radius:30px;
+background:#8a2be2;
+color:white;
+font-size:18px;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 15px #8a2be2;
+}
+
+button:hover{
+transform:scale(1.1);
+background:#a855f7;
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px #8a2be2;
+}
+to{
+text-shadow:0 0 20px #8a2be2,
+0 0 40px #8a2be2,
+0 0 60px #8a2be2;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+<h1>MZN</h1>
+<p>Luxury Dark Aesthetic Website</p>
+<button>ENTER</button>
+</div>
+
+</body>
+</html>
