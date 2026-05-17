@@ -10,8 +10,8 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+<canvas id="matrix"></canvas>
+<h1 id="text"></h1>
 
 body{
 height:100vh;
@@ -58,7 +58,45 @@ animation:glow 2s infinite alternate;
 @keyframes glow{
 from{
 transform:scale(1);
+window.onload = function() {
+  let audio = new Audio("assets/sound/enter.mp3");
+  audio.volume = 0.5;
+  audio.play();
+};
+
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 100; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 2
+  });
 }
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#00ffcc";
+
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+
+    p.y += 0.5;
+    if (p.y > canvas.height) p.y = 0;
+  });
+
+  requestAnimationFrame(draw);
+}
+
+draw();
 to{
 transform:scale(1.05);
 }
